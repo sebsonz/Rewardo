@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿version: "3.8"
 services:
   mongo:
@@ -7,25 +8,71 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+=======
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: rewardo-db
+    environment:
+      POSTGRES_DB: rewardo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+>>>>>>> 0d33c1699a3a7ac44d0e1f8f9fe46b20ccb8501d
 
   backend:
     build: ./backend
     container_name: rewardo-backend
     ports:
+<<<<<<< HEAD
       - "4000:4000"
     environment:
       - MONGO_URI=mongodb://mongo:27017/rewardo
       - JWT_SECRET=ChangeThisJWTSecret
     depends_on:
       - mongo
+=======
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - JWT_SECRET=SuperSecretRewardoKey
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=rewardo
+    depends_on:
+      - db
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+>>>>>>> 0d33c1699a3a7ac44d0e1f8f9fe46b20ccb8501d
 
   frontend:
     build: ./frontend
     container_name: rewardo-frontend
     ports:
       - "5173:5173"
+<<<<<<< HEAD
     depends_on:
       - backend
 
 volumes:
   mongo_data:
+=======
+    environment:
+      - VITE_BACKEND_URL=http://localhost:3000
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+
+volumes:
+  pgdata:
+>>>>>>> 0d33c1699a3a7ac44d0e1f8f9fe46b20ccb8501d

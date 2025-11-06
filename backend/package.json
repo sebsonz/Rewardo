@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿{
   "name": "rewardo-backend",
   "version": "1.0.0",
@@ -18,3 +19,27 @@
     "nodemon": "^3.0.2"
   }
 }
+=======
+{
+  "name": "rewardo-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "pg": "^8.11.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
+>>>>>>> 0d33c1699a3a7ac44d0e1f8f9fe46b20ccb8501d
